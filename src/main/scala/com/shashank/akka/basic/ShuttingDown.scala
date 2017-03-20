@@ -18,7 +18,7 @@ object ShuttingDown {
 
     system.shutdown()
 
-    actorRef ? (PoisonPill)
+    infoLoggerActor ? (PoisonPill)
   }
 
 }
