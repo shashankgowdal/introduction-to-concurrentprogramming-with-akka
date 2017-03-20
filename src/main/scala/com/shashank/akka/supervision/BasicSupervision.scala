@@ -21,6 +21,7 @@ class Child extends Actor {
     case ex: Exception => throw ex
     case x: Int => state = x
     case "status" => println(state)
+    case "get" => sender() ! state
   }
 }
 
@@ -70,8 +71,6 @@ object BasicSupervision{
     val system:ActorSystem = ActorSystem("supervisionexample")
     val supervisor = system.actorOf(Props[Supervisor], "supervisor")
     implicit val timeout = Timeout(2 seconds)
-
-    SupervisorStrategy.stoppingStrategy
 
     val childActor = Await.result((supervisor ? Props[Child]), timeout.duration).asInstanceOf[ActorRef]
 
