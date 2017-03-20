@@ -13,6 +13,7 @@ resolvers ++= Seq(
 
 libraryDependencies ++= Seq(
   "com.typesafe.akka" %% "akka-actor" % akkaHttpV,
+  "com.typesafe.akka" %% "akka-remote" % akkaHttpV,
   "com.typesafe.akka" %% "akka-testkit" % akkaHttpV,
   "org.scalatest" %% "scalatest" % "2.2.5"
 )
